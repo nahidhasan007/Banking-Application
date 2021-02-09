@@ -1,0 +1,21 @@
+{% extends 'BankingSystem/index.html' %}
+{% block content %}
+<h4>Register Here</h4>
+<div>
+	<form action="{% url 'BankingSystem:adduser' %}" method="POST">
+
+		{% csrf_token %}
+		<label><h4 style="color: red">Name</h4></label>
+		<input type="text" name="name"><br>
+		<label><h4 style="color: red">Nid No.</h4></label>
+		<input type="text" name="nid"><br>
+		<label><h4 style="color: red">Created Date</h4></label>
+		<input type="text" name="date"><br>
+		<label><h4 style="color: red">Initial Balance</h4></label>
+		<input type="number" name="balance"><br><br>
+		<input type="submit" value="Add User">
+		
+	</form>
+		<h3>{{msg}}</h3>
+</div>
+{% endblock %}

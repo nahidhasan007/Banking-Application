@@ -1,0 +1,14 @@
+{% extends 'BankingSystem/index.html'%}
+{% block content %}
+<h3>Detail Account Information...</h3><br>
+<ul>
+	<div>
+		{% for user in users %}
+		<li style="color: white;">Name: {{user.name}}</li>
+		<li style="color: white;">NID NO: {{user.nid_no}}</li>
+		<li style="color: white;">Account Created: {{user.date_created}}</li>
+		<li style="color: white;">Total Balance: ${{user.balance}}</li>
+		{% endfor %}
+	</div>
+</ul>
+{% endblock %}

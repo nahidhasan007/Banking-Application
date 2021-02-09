@@ -1,0 +1,28 @@
+{% extends 'BankingSystem/index.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Withdraw Money</title>
+</head>
+<body>
+	<h3>Withdraw Money Here....</h3>
+<div>
+	<form action="{% url 'BankingSystem:withdraw' %}" method="POST">
+		{% csrf_token %}
+		<label><h4 style="color: yellow">From Account Owner</h4></label>
+		<select name="user">
+			{% for user in users %}
+			<option value="{{user.id}}">{{user.name}}</option>
+			{% endfor %}
+		</select><br>
+		<label><h4 style="color: yellow">Amount</h4></label>
+		<input type="number" name="amount"><br><br>
+		<input type="submit" value="Withdraw">
+			
+		
+	</form>
+</div>
+</body>
+</html>
+{% endblock %}

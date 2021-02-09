@@ -1,0 +1,12 @@
+{% extends 'BankingSystem/index.html'%}
+{% block content %}
+<div>
+	<h3> User Information..... </h3>
+<ul>
+{% for user in bank_users %}
+	<li style="color:white">Account Owner: <a href="{% url 'BankingSystem:home' user.pk %}" 
+		style="color:black">{{user.name}}</a></li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

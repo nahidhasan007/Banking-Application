@@ -1,0 +1,28 @@
+{% extends 'BankingSystem/index.html'%}
+{% block content %}
+<div>
+	<h3>Send Money Here....</h3>
+
+	<form action="{% url 'BankingSystem:sendmoney' %}" method="POST">
+	{% csrf_token %}
+		
+	<label><h4 style="color: white">Send From</h4></label>
+	<select name="user">
+		{% for user in users %}
+		<option value="{{user.id}}">{{user.name}}</option>
+		{% endfor %}
+	</select><br>
+	<label><h4 style="color: white">Send To</h4></label>
+	<select name="user1">
+		{% for user1 in users %}
+		<option value="{{user1.id}}">{{user1.name}}</option>
+		{% endfor %}
+	</select><br>
+	<label><h4 style="color: white">Amount</h4></label>
+	<input type="number" name="amount"><br><br>
+	<input type="submit" value="Send Money">
+
+
+</form>
+</div>
+{% endblock %}

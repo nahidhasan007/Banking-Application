@@ -1,0 +1,29 @@
+{% extends 'BankingSystem/index.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deposit Money </title>
+</head>
+<body>
+	<h3>Deposit Money Here...</h3>
+	<div>
+	<form action="{% url 'BankingSystem:deposit' %}" method="POST">
+		{% csrf_token %}
+		<label><h4 style="color: blue">Account Owner</h4></label>
+		<select name="user">
+			{% for user in users %}
+			<option value="{{user.id}}">{{user.name}}</option>
+			{% endfor %}
+			
+		</select><br>
+		<label><h4 style="color: blue">Amount</h4></label>
+		<input type="number" name="amount"><br><br>
+		<input type="submit" value="save">
+		
+	</form>
+	</div>
+
+</body>
+</html>
+{% endblock %}
